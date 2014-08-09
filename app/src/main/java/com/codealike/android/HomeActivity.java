@@ -27,19 +27,16 @@ public class HomeActivity extends FragmentActivity {
         @Override
         public Fragment getItem(int pos) {
             switch(pos) {
-
-                case 0: return FirstFragment.newInstance("FirstFragment, Instance 1");
-                case 1: return SecondFragment.newInstance("SecondFragment, Instance 1");
-                case 2: return ThirdFragment.newInstance("ThirdFragment, Instance 1");
-                case 3: return ThirdFragment.newInstance("ThirdFragment, Instance 2");
-                case 4: return ThirdFragment.newInstance("ThirdFragment, Instance 3");
-                default: return ThirdFragment.newInstance("ThirdFragment, Default");
+                case 0: return UserFactsFragment.newInstance("UserFactsFragment");
+                case 1: return CodeFactsFragment.newInstance("CodeFactsFragment");
+                case 2: return DaysOnFireFragment.newInstance("DaysOnFireFragment");
+                default: return DaysOnFireFragment.newInstance("DaysOnFireFragment, Default");
             }
         }
 
         @Override
         public int getCount() {
-            return 5;
+            return 3;
         }
     }
 }

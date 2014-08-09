@@ -1,27 +1,27 @@
 package com.codealike.android;
 
-import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class SecondFragment extends Fragment {
+public class DaysOnFireFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_second, container, false);
+        View v = inflater.inflate(R.layout.fragment_third, container, false);
 
-        TextView tv = (TextView) v.findViewById(R.id.secondFragment);
+        TextView tv = (TextView) v.findViewById(R.id.thirdFragment);
         tv.setText(getArguments().getString("msg"));
 
         return v;
     }
 
-    public static SecondFragment newInstance(String text) {
+    public static DaysOnFireFragment newInstance(String text) {
 
-        SecondFragment f = new SecondFragment();
+        DaysOnFireFragment f = new DaysOnFireFragment();
         Bundle b = new Bundle();
         b.putString("msg", text);
 
@@ -29,5 +29,4 @@ public class SecondFragment extends Fragment {
 
         return f;
     }
-
 }

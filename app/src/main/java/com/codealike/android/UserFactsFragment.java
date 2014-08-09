@@ -7,21 +7,21 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
-public class ThirdFragment extends Fragment {
+public class UserFactsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View v = inflater.inflate(R.layout.fragment_third, container, false);
+        View v = inflater.inflate(R.layout.fragment_first, container, false);
 
-        TextView tv = (TextView) v.findViewById(R.id.thirdFragment);
+        TextView tv = (TextView) v.findViewById(R.id.firstFragment);
         tv.setText(getArguments().getString("msg"));
 
         return v;
     }
 
-    public static ThirdFragment newInstance(String text) {
+    public static UserFactsFragment newInstance(String text) {
 
-        ThirdFragment f = new ThirdFragment();
+        UserFactsFragment f = new UserFactsFragment();
         Bundle b = new Bundle();
         b.putString("msg", text);
 
