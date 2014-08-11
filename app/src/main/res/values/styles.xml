@@ -5,4 +5,19 @@
         <!-- Customize your theme here. -->
     </style>
 
+    <style name="form" parent="AppTheme">
+        <item name="android:textViewStyle">@style/form_text_view</item>
+    </style>
+
+    <style name="form_text_view">
+        <item name="android:textColor">#372c24</item>
+    </style>
+
+    <style name="btn_main">
+        <item name="android:background">@color/orange</item>
+        <item name="android:textColor">#FFFFFF</item>
+    </style>
+
+    <color name="orange">#F47723</color>
+
 </resources>

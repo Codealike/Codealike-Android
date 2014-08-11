@@ -1,4 +1,4 @@
-package com.codealike.android;
+package com.codealike.android.activities;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -7,7 +7,12 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 
-public class HomeActivity extends FragmentActivity {
+import com.codealike.android.R;
+import com.codealike.android.fragments.CodeFactsFragment;
+import com.codealike.android.fragments.DaysOnFireFragment;
+import com.codealike.android.fragments.UserFactsFragment;
+
+public class DashboardActivity extends FragmentActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
