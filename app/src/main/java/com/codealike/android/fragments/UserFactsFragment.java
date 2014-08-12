@@ -37,6 +37,8 @@ public class UserFactsFragment extends Fragment {
         chunk.set("coding", userData.ActivityPercentage.Coding);
         chunk.set("building", userData.ActivityPercentage.Building);
         chunk.set("debugging", userData.ActivityPercentage.Debugging);
+        chunk.set("width", webView.getWidth());
+        chunk.set("height", webView.getHeight());
 
         WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
