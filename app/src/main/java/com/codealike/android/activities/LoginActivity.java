@@ -8,18 +8,17 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.EditText;
 
+import com.codealike.android.CodealikeApplication;
 import com.codealike.android.R;
 
-
-import java.io.BufferedInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+import com.codealike.android.model.UserData;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.loopj.android.http.*;
 
 import org.apache.http.Header;
+import org.apache.http.message.BasicHeader;
+import org.json.JSONObject;
 
 public class LoginActivity extends Activity {
 
@@ -59,19 +58,32 @@ public class LoginActivity extends Activity {
 
     public void login(View view) {
 
-        EditText userName = (EditText)findViewById(R.id.username);
-        EditText token = (EditText)findViewById(R.id.token);
+        String userName = ((EditText)findViewById(R.id.username)).getText().toString();
+        //String token = ((EditText)findViewById(R.id.token)).getText().toString();
+        String token = "196f999e-e860-4687-9122-1bbfa4802ae0";
 
-        String factsUrl = "https://codealike.com/api/v2/facts/" + userName.getText().toString();
+        String factsUrl = "https://codealike.com/api/v2/facts/" + userName;
         AsyncHttpClient client = new AsyncHttpClient();
-        client.get(factsUrl, new AsyncHttpResponseHandler() {
-            @Override
-            public void onSuccess(int statusCode, Header[] headers, byte[] responseBody) {
+        Header[] headers = {
+            new BasicHeader("X-Api-Identity", userName),
+            new BasicHeader("X-Api-Token", token)
+        };
 
+        client.get(this.getApplicationContext(), factsUrl, headers, null, new JsonHttpResponseHandler() {
+            @Override
+            public void onSuccess(int statusCode, Header[] headers, JSONObject response) {
+                Gson gson=  new GsonBuilder().setDateFormat("yyyy-MM-dd'T'HH:mm:ss").create();
+                UserData userData = gson.fromJson(response.toString(), UserData.class);
+                CodealikeApplication app = (CodealikeApplication)getApplication();
+                app.setUserData(userData);
+
+                Intent dashboardIntent = new Intent(LoginActivity.this, DashboardActivity.class);
+                startActivity(dashboardIntent);
+                //finish();
             }
 
             @Override
-            public void onFailure(int statusCode, Header[] headers, byte[] responseBody, Throwable error) {
+            public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
 
             }
         });

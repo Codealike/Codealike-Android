@@ -7,13 +7,17 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.codealike.android.CodealikeApplication;
 import com.codealike.android.R;
+import com.codealike.android.model.UserData;
 
 public class UserFactsFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.fragment_user_facts, container, false);
+
+        UserData userData = ((CodealikeApplication)getActivity().getApplication()).getUserData();
 
         TextView tv = (TextView) v.findViewById(R.id.firstFragment);
         tv.setText(getArguments().getString("msg"));
