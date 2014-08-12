@@ -8,6 +8,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.codealike.android.CodealikeApplication;
 import com.codealike.android.R;
@@ -40,10 +41,20 @@ public class UserFactsFragment extends Fragment {
         chunk.set("width", webView.getWidth());
         chunk.set("height", webView.getHeight());
 
-        WebSettings webSettings = webView.getSettings();
+        final WebSettings webSettings = webView.getSettings();
         webSettings.setJavaScriptEnabled(true);
         webView.requestFocusFromTouch();
         webView.loadDataWithBaseURL( "file:///android_asset/", chunk.toString(), "text/html", "utf-8", null );
+
+        /*webView.setWebViewClient(new WebViewClient() {
+            @Override
+            public void onPageFinished(WebView webView, String url)
+            {
+                super.onPageFinished(webView, url);
+                webView.getHeight();
+                webView.getWidth();
+            }
+        });*/
 
         return v;
     }

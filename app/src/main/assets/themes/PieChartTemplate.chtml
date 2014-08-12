@@ -15,7 +15,9 @@
 
         var options = {
           pieHole: 0.4,
-          legend: {position: 'bottom'}
+          legend: {position: 'bottom'},
+          width: 400,
+          height: 400
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('donutchart'));
