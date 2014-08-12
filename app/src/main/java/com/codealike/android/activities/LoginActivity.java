@@ -84,7 +84,7 @@ public class LoginActivity extends Activity {
 
             @Override
             public void onFailure(int statusCode, Header[] headers, Throwable throwable, JSONObject errorResponse) {
-
+                //TODO: handle failure.
             }
         });
     }
