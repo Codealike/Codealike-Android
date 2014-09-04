@@ -1,34 +1,51 @@
 {#root}
 <!DOCTYPE html>
 <meta charset="utf-8">
-<style>
+<html>
+    <head>
+        <script src="file:///android_asset/d3.min.js"></script>
 
-.chart div {
-  font: 10px sans-serif;
-  background-color: steelblue;
-  text-align: right;
-  padding: 3px;
-  margin: 1px;
-  color: white;
-}
+        <script>
 
-</style>
-<div class="chart"></div>
-<script src="file:///android_asset/d3.min.js"></script>
-<script>
+        var w = window.innerWidth;
+        var h = window.innerHeight;
+        var barHeight = 40;
 
-var data = [{$coding}, {$debugging}, {$building}];
+        var data = [{ key: 0, value: {$coding}, color: "#8CC63F" },
+                    { key: 1, value: {$debugging}, color: "#F7A200" },
+                    { key: 2, value: {$building}, color: "#E01BAB" }];
 
-var x = d3.scale.linear()
-    .domain([0, d3.max(data)])
-    .range([0, ({$coding} / 100) * window.innerWidth]);
+        var xScale = d3.scale.linear()
+        				.domain([0, 100])
+        				.range([0, w]);
 
-d3.select(".chart")
-  .selectAll("div")
-    .data(data)
-  .enter().append("div")
-    .style("width", function(d) { return x(d) + "px"; })
-    .text(function(d) { return d; });
+        var key = function(d) {
+        	return d.key;
+        };
 
-</script>
+        //Create SVG element
+        var svg = d3.select("body")
+        			.append("svg")
+        			.attr("width", w)
+        			.attr("height", h);
+
+        //Create bars
+        svg.selectAll("rect")
+           .data(data, key)
+           .enter()
+           .append("rect")
+           .attr("height", barHeight - 1)
+           .attr("width", function(d) {
+        		return xScale(d.value);
+           })
+           .attr("fill", function(d) {
+               return d.color;
+           })
+           .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
+
+        </script>
+    </head>
+    <body>
+    </body>
+</html>
 {#}
