@@ -3,13 +3,11 @@ package com.codealike.android.fragments;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.webkit.WebViewClient;
 
 import com.codealike.android.CodealikeApplication;
 import com.codealike.android.R;
@@ -18,8 +16,6 @@ import com.x5.template.Chunk;
 import com.x5.template.Theme;
 import com.x5.template.providers.AndroidTemplates;
 
-import java.io.IOException;
-import java.io.InputStream;
 
 public class UserFactsFragment extends Fragment {
 
