@@ -3,7 +3,7 @@
 <head>
     <script type="text/javascript" src="file:///android_asset/jsapi.js"></script>
     <script type="text/javascript">
-      google.load("visualization", "1", {packages:["corechart"]});
+      //google.load("visualization", "1", {packages:["corechart"]});
       google.setOnLoadCallback(drawChart);
       function drawChart() {
         var data = google.visualization.arrayToDataTable([

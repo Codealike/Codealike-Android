@@ -3,6 +3,7 @@ package com.codealike.android.fragments;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -31,30 +32,33 @@ public class UserFactsFragment extends Fragment {
         UserData userData = ((CodealikeApplication)activity.getApplication()).getUserData();
 
         WebView webView = (WebView)v.findViewById(R.id.userFactsWebView);
+        final WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true);
+        webSettings.setBuiltInZoomControls(false);
+        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
+        webView.requestFocus(View.FOCUS_DOWN);
+        //webView.requestFocusFromTouch();
 
         AndroidTemplates loader = new AndroidTemplates(activity.getBaseContext());
         Theme theme = new Theme(loader);
-        Chunk chunk = theme.makeChunk("PieChartTemplate#root");
+        Chunk chunk = theme.makeChunk("UserFactsChart#root");
+        //Chunk chunk = theme.makeChunk("Flotr2#root");
         chunk.set("coding", userData.ActivityPercentage.Coding);
         chunk.set("building", userData.ActivityPercentage.Building);
         chunk.set("debugging", userData.ActivityPercentage.Debugging);
         chunk.set("width", webView.getWidth());
         chunk.set("height", webView.getHeight());
 
-        final WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        webView.requestFocusFromTouch();
         webView.loadDataWithBaseURL( "file:///android_asset/", chunk.toString(), "text/html", "utf-8", null );
 
-        /*webView.setWebViewClient(new WebViewClient() {
+        webView.setWebViewClient(new WebViewClient() {
             @Override
             public void onPageFinished(WebView webView, String url)
             {
                 super.onPageFinished(webView, url);
-                webView.getHeight();
-                webView.getWidth();
+                Log.i("Chart WebView", "Page finished Loading");
             }
-        });*/
+        });
 
         return v;
     }
