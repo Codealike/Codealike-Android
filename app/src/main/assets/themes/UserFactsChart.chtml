@@ -3,49 +3,68 @@
 <meta charset="utf-8">
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="file:///android_asset/nv.d3.min.css" />
+        <link rel="stylesheet" type="text/css" href="file:///android_asset/codealike.css" />
         <script src="file:///android_asset/d3.min.js"></script>
-
-        <script>
-
-        var w = window.innerWidth;
-        var h = window.innerHeight;
-        var barHeight = 40;
-
-        var data = [{ key: 0, value: {$coding}, color: "#8CC63F" },
-                    { key: 1, value: {$debugging}, color: "#F7A200" },
-                    { key: 2, value: {$building}, color: "#E01BAB" }];
-
-        var xScale = d3.scale.linear()
-        				.domain([0, 100])
-        				.range([0, w]);
-
-        var key = function(d) {
-        	return d.key;
-        };
-
-        //Create SVG element
-        var svg = d3.select("body")
-        			.append("svg")
-        			.attr("width", w)
-        			.attr("height", h);
-
-        //Create bars
-        svg.selectAll("rect")
-           .data(data, key)
-           .enter()
-           .append("rect")
-           .attr("height", barHeight - 1)
-           .attr("width", function(d) {
-        		return xScale(d.value);
-           })
-           .attr("fill", function(d) {
-               return d.color;
-           })
-           .attr("transform", function(d, i) { return "translate(0," + i * barHeight + ")"; });
-
-        </script>
+        <script src="file:///android_asset/nv.d3.min.js"></script>
     </head>
+
     <body>
+        <h1>Behavior facts</h1>
+        <div id="behaviorChart">
+          <svg></svg>
+          <div class="ca-legend">
+              <div class="ca-box ca-box-coding"></div>
+              <div>Coding</div>
+              <div class="ca-box ca-box-debugging"></div>
+              <div>Debugging</div>
+              <div class="ca-box ca-box-building"></div>
+              <div>Building</div>
+          </div>
+        </div>
     </body>
+
+    <script>
+
+    var data = [
+                 {
+                   "key": "Behavior Facts",
+                   "values": [
+                     {
+                       "label" : "Coding" ,
+                       "value" : {$coding}
+                     } ,
+                     {
+                       "label" : "Debugging" ,
+                       "value" : {$debugging}
+                     } ,
+                     {
+                       "label" : "Building" ,
+                       "value" : {$building}
+                     }
+                   ]
+                 }
+               ];
+
+    nv.addGraph(function() {
+      var chart = nv.models.multiBarHorizontalChart()
+          .x(function(d) { return d.label })
+          .y(function(d) { return d.value })
+          .margin({top: 30, right: 20, bottom: 30, left: 20})
+          .showValues(true)
+          .tooltips(true)
+          .showControls(false)
+          .barColor(['#8CC63F', '#F7A200', '#E01BAB']);
+
+      d3.select('#behaviorChart svg')
+          .datum(data)
+          .transition().duration(500)
+          .call(chart);
+
+      return chart;
+    });
+
+
+    </script>
 </html>
 {#}

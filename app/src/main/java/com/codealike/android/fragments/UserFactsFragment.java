@@ -37,28 +37,15 @@ public class UserFactsFragment extends Fragment {
         webSettings.setBuiltInZoomControls(false);
         webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
         webView.requestFocus(View.FOCUS_DOWN);
-        //webView.requestFocusFromTouch();
 
         AndroidTemplates loader = new AndroidTemplates(activity.getBaseContext());
         Theme theme = new Theme(loader);
         Chunk chunk = theme.makeChunk("UserFactsChart#root");
-        //Chunk chunk = theme.makeChunk("Flotr2#root");
         chunk.set("coding", userData.ActivityPercentage.Coding);
         chunk.set("building", userData.ActivityPercentage.Building);
         chunk.set("debugging", userData.ActivityPercentage.Debugging);
-        chunk.set("width", webView.getWidth());
-        chunk.set("height", webView.getHeight());
 
         webView.loadDataWithBaseURL( "file:///android_asset/", chunk.toString(), "text/html", "utf-8", null );
-
-        webView.setWebViewClient(new WebViewClient() {
-            @Override
-            public void onPageFinished(WebView webView, String url)
-            {
-                super.onPageFinished(webView, url);
-                Log.i("Chart WebView", "Page finished Loading");
-            }
-        });
 
         return v;
     }
