@@ -3,85 +3,60 @@
 <meta charset="utf-8">
 <html>
     <head>
+        <link rel="stylesheet" type="text/css" href="file:///android_asset/nv.d3.min.css" />
         <link rel="stylesheet" type="text/css" href="file:///android_asset/codealike.css" />
         <script src="file:///android_asset/d3.min.js"></script>
-
-        <style>
-
-            .node {
-              border: solid 1px white;
-              font: 10px sans-serif;
-              line-height: 12px;
-              overflow: hidden;
-              position: absolute;
-              text-indent: 2px;
-            }
-        </style>
+        <script src="file:///android_asset/nv.d3.min.js"></script>
     </head>
 
     <body>
         <h1>Code facts</h1>
         <div id="codeChart">
           <svg></svg>
+          <!--<div class="ca-legend">
+              <div class="ca-box ca-box-coding"></div>
+              <div>Coding</div>
+              <div class="ca-box ca-box-debugging"></div>
+              <div>Debugging</div>
+              <div class="ca-box ca-box-building"></div>
+              <div>Building</div>
+          </div>-->
         </div>
     </body>
 
     <script>
 
-        var data = {
-            "name": "Technologies",
-            "children": [
-                { "name": "C#", "size": 70 },
-                { "name": "HTML", "size": 20 },
-                { "name": "Other", "size": 10 }
-            ]
-        };
+    var data = [
+                 {
+                   "key": "Code Facts",
+                   "values": [
+                     {.loop in $technologies as $t}
+                     {
+                       "label" : "{$t.Name}",
+                       "value" : {$t.Percentage}
+                     },
+                     {/loop}
+                   ]
+                 }
+               ];
 
-        var margin = {top: 10, right: 10, bottom: 10, left: 10},
-            width = window.innerWidth * 0.75,
-            height = window.innerHeight * 0.75;
+    nv.addGraph(function() {
+      var chart = nv.models.multiBarHorizontalChart()
+          .x(function(d) { return d.label })
+          .y(function(d) { return d.value })
+          .margin({top: 30, right: 20, bottom: 30, left: 20})
+          .showValues(true)
+          .tooltips(true)
+          .showControls(false)
+          //.barColor(['#8CC63F', '#F7A200', '#E01BAB']);
 
-        var color = d3.scale.category20c();
+      d3.select('#codeChart svg')
+          .datum(data)
+          .transition().duration(500)
+          .call(chart);
 
-        var treemap = d3.layout.treemap()
-            .size([width, height])
-            .sticky(true)
-            .value(function(d) { return d.size; });
-
-        var div = d3.select("body").append("div")
-            //.style("position", "relative")
-            .style("width", width  + "px")
-            .style("height", height + "px")
-            //.style("left", margin.left + "px")
-            //.style("top", margin.top + "px");
-
-          var node = div.datum(data).selectAll(".node")
-              .data(treemap.nodes)
-            .enter().append("div")
-              .attr("class", "node")
-              .call(position)
-              .style("background", function(d) { return d.children ? color(d.name) : null; })
-              .text(function(d) { return d.children ? null : d.name; });
-
-          d3.selectAll("input").on("change", function change() {
-            var value = this.value === "count"
-                ? function() { return 1; }
-                : function(d) { return d.size; };
-
-            node
-                .data(treemap.value(value).nodes)
-              .transition()
-                .duration(1500)
-                .call(position);
-          });
-
-        function position() {
-          this.style("left", function(d) { return d.x + "px"; })
-              .style("top", function(d) { return d.y + "px"; })
-              .style("width", function(d) { return Math.max(0, d.dx - 1) + "px"; })
-              .style("height", function(d) { return Math.max(0, d.dy - 1) + "px"; });
-        }
-
+      return chart;
+    });
 
 
     </script>

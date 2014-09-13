@@ -70,6 +70,7 @@ public class CodeFactsFragment extends Fragment {
         AndroidTemplates loader = new AndroidTemplates(activity.getBaseContext());
         Theme theme = new Theme(loader);
         Chunk chunk = theme.makeChunk("CodeFactsChart#root");
+        chunk.set("technologies", technologies);
 
         webView.loadDataWithBaseURL( "file:///android_asset/", chunk.toString(), "text/html", "utf-8", null );
 
