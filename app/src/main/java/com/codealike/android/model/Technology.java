@@ -1,5 +1,6 @@
 package com.codealike.android.model;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -17,6 +18,6 @@ public class Technology {
 
     public Technology()
     {
-
+        this.Categories = new ArrayList<String>();
     }
 }

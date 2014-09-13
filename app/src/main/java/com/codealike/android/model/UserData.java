@@ -1,5 +1,6 @@
 package com.codealike.android.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -22,6 +23,7 @@ public class UserData {
 
     public UserData()
     {
-
+        this.ByTechnologies = new ArrayList<Technology>();
+        this.DaysOnFire = new ArrayList<Date>();
     }
 }

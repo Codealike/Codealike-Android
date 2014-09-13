@@ -11,10 +11,18 @@ import android.webkit.WebView;
 
 import com.codealike.android.CodealikeApplication;
 import com.codealike.android.R;
+import com.codealike.android.model.Technology;
 import com.codealike.android.model.UserData;
 import com.x5.template.Chunk;
 import com.x5.template.Theme;
 import com.x5.template.providers.AndroidTemplates;
+
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
 public class CodeFactsFragment extends Fragment {
 
@@ -25,6 +33,32 @@ public class CodeFactsFragment extends Fragment {
         FragmentActivity activity = getActivity();
 
         UserData userData = ((CodealikeApplication)activity.getApplication()).getUserData();
+
+        List<Technology> technologies = new ArrayList<Technology>();
+        Technology technologyOther = new Technology();
+        technologyOther.Name = "Other";
+        for(int i = 0; i < userData.ByTechnologies.size(); i++)
+        {
+            Technology technology = userData.ByTechnologies.get(i);
+            if(technology.Name.equals("Other"))
+            {
+                technologyOther.Percentage += technology.Percentage;
+            }
+            else {
+                technologies.add(technology);
+            }
+        }
+
+        technologyOther.Percentage = new BigDecimal(technologyOther.Percentage).setScale(2, RoundingMode.HALF_UP).doubleValue();
+        technologies.add(technologyOther);
+
+        Collections.sort(technologies, new Comparator<Technology>() {
+            @Override
+            public int compare(Technology t1, Technology t2) {
+                return t1.Percentage > t2.Percentage ? -1 : (t1.Percentage < t2.Percentage ? 1 : 0);
+            }
+        });
+
 
         WebView webView = (WebView)v.findViewById(R.id.codeFactsWebView);
         final WebSettings webSettings = webView.getSettings();

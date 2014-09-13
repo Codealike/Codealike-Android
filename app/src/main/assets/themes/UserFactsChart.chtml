@@ -33,11 +33,11 @@
                      {
                        "label" : "Coding" ,
                        "value" : {$coding}
-                     } ,
+                     },
                      {
                        "label" : "Debugging" ,
                        "value" : {$debugging}
-                     } ,
+                     },
                      {
                        "label" : "Building" ,
                        "value" : {$building}
