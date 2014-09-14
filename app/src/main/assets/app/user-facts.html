@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+<html ng-app="codealikeApp">
+
+    <head>
+        <link rel="stylesheet" type="text/css" href="file:///android_asset/nv.d3.min.css" />
+        <link rel="stylesheet" type="text/css" href="file:///android_asset/codealike.css" />
+        <script src="file:///android_asset/angular.min.js"></script>
+        <script src="file:///android_asset/d3.min.js"></script>
+        <script src="file:///android_asset/nv.d3.min.js"></script>
+        <script src="file:///android_asset/angular-nvd3.min.js"></script>
+        <script src="file:///android_asset/app/js/controller.js"></script>
+    </head>
+
+    <body ng-controller='userFactsController'>
+        <h1>Behavior facts</h1>
+        <!--<div id="behaviorChart">
+            <svg></svg>
+            <div class="ca-legend">
+                <div class="ca-box ca-box-coding"></div>
+                <div>Coding</div>
+                <div class="ca-box ca-box-debugging"></div>
+                <div>Debugging</div>
+                <div class="ca-box ca-box-building"></div>
+                <div>Building</div>
+            </div>
+        </div>-->
+        <nvd3 options='options' data='data'></nvd3>
+    </body>
+</html>

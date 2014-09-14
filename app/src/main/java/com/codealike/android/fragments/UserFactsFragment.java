@@ -34,14 +34,15 @@ public class UserFactsFragment extends Fragment {
         webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
         webView.requestFocus(View.FOCUS_DOWN);
 
-        AndroidTemplates loader = new AndroidTemplates(activity.getBaseContext());
+        /*AndroidTemplates loader = new AndroidTemplates(activity.getBaseContext());
         Theme theme = new Theme(loader);
         Chunk chunk = theme.makeChunk("UserFactsChart#root");
         chunk.set("coding", userData.ActivityPercentage.Coding);
         chunk.set("building", userData.ActivityPercentage.Building);
-        chunk.set("debugging", userData.ActivityPercentage.Debugging);
+        chunk.set("debugging", userData.ActivityPercentage.Debugging);*/
 
-        webView.loadDataWithBaseURL( "file:///android_asset/", chunk.toString(), "text/html", "utf-8", null );
+        //webView.loadDataWithBaseURL( "file:///android_asset/", chunk.toString(), "text/html", "utf-8", null );
+        webView.loadUrl("file:///android_asset/app/user-facts.html");
 
         return v;
     }
