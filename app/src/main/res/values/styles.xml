@@ -18,6 +18,49 @@
         <item name="android:textColor">#FFFFFF</item>
     </style>
 
+    <style name="NumberProgressBar_Coding">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="max">100</item>
+        <item name="progress">0</item>
+        <item name="progress_unreached_color">#FFFFFF</item>
+        <item name="progress_reached_color">@color/coding_green</item>
+        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_color">@color/coding_green</item>
+        <item name="progress_reached_bar_height">50dp</item>
+        <item name="progress_unreached_bar_height">0dp</item>
+    </style>
+
+    <style name="NumberProgressBar_Debugging">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="max">100</item>
+        <item name="progress">0</item>
+        <item name="progress_unreached_color">#FFFFFF</item>
+        <item name="progress_reached_color">@color/debugging_orange</item>
+        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_color">@color/debugging_orange</item>
+        <item name="progress_reached_bar_height">50dp</item>
+        <item name="progress_unreached_bar_height">0dp</item>
+    </style>
+
+    <style name="NumberProgressBar_Building">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">match_parent</item>
+        <item name="max">100</item>
+        <item name="progress">0</item>
+        <item name="progress_unreached_color">#FFFFFF</item>
+        <item name="progress_reached_color">@color/building_magenta</item>
+        <item name="progress_text_size">10sp</item>
+        <item name="progress_text_color">@color/building_magenta</item>
+        <item name="progress_reached_bar_height">50dp</item>
+        <item name="progress_unreached_bar_height">0dp</item>
+    </style>
+
     <color name="orange">#F47723</color>
+    <color name="coding_green">#8CC63F</color>
+    <color name="debugging_orange">#F7A200</color>
+    <color name="building_magenta">#E01BAB</color>
+    <color name="subtitle">#FF888888</color>
 
 </resources>

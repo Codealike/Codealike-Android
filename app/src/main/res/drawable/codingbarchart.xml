@@ -1,7 +1,0 @@
-<layer-list xmlns:android="http://schemas.android.com/apk/res/android" >
-    <item android:id="@android:id/progress">
-        <clip>
-            <color android:color="#8CC63F"></color>
-        </clip>
-    </item>
-</layer-list>

@@ -13,6 +13,7 @@ import android.widget.ProgressBar;
 import com.codealike.android.CodealikeApplication;
 import com.codealike.android.R;
 import com.codealike.android.model.UserData;
+import com.daimajia.numberprogressbar.NumberProgressBar;
 
 public class UserFactsFragment extends Fragment {
 
@@ -24,13 +25,14 @@ public class UserFactsFragment extends Fragment {
 
         UserData userData = ((CodealikeApplication)activity.getApplication()).getUserData();
 
-        ProgressBar coding = (ProgressBar) v.findViewById(R.id.progressCoding);
-        ProgressBar debugging = (ProgressBar) v.findViewById(R.id.progressDebugging);
-        ProgressBar building = (ProgressBar) v.findViewById(R.id.progressBuilding);
+        NumberProgressBar codingProgressBar = (NumberProgressBar)v.findViewById(R.id.progressCoding);
+        codingProgressBar.setProgress((int)userData.ActivityPercentage.Coding);
 
-        coding.setProgress((int)userData.ActivityPercentage.Coding);
-        debugging.setProgress((int)userData.ActivityPercentage.Debugging);
-        building.setProgress((int)userData.ActivityPercentage.Building);
+        NumberProgressBar debuggingProgressBar = (NumberProgressBar)v.findViewById(R.id.progressDebugging);
+        debuggingProgressBar.setProgress((int)userData.ActivityPercentage.Debugging);
+
+        NumberProgressBar buildingProgressBar = (NumberProgressBar)v.findViewById(R.id.progressBuilding);
+        buildingProgressBar.setProgress((int)userData.ActivityPercentage.Building);
 
         return v;
     }
