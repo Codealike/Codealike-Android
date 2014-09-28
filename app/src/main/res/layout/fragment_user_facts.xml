@@ -1,16 +1,100 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent" >
+    android:layout_height="match_parent">
 
 
-    <WebView
-        android:id="@+id/userFactsWebView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_alignParentBottom="true"
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:id="@+id/progressCoding"
+        android:progressDrawable="@drawable/codingbarchart"
+        android:progress="70"
+        android:layout_below="@+id/textViewTitle"
+        android:layout_marginTop="57dp"
         android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentTop="true" />
+        android:layout_alignParentEnd="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:id="@+id/progressDebugging"
+        android:progressDrawable="@drawable/debuggingbarchart"
+        android:progress="20"
+        android:clickable="false"
+        android:layout_below="@+id/textView3"
+        android:layout_marginRight="10dp"
+        android:layout_alignLeft="@+id/textView3"
+        android:layout_alignStart="@+id/textView3" />
+
+    <ProgressBar
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="fill_parent"
+        android:layout_height="50dp"
+        android:id="@+id/progressBuilding"
+        android:progressDrawable="@drawable/buildingbarchart"
+        android:progress="10"
+        android:clickable="false"
+        android:indeterminate="false"
+        android:layout_marginTop="50dp"
+        android:layout_below="@+id/progressDebugging"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Behavior Facts"
+        android:id="@+id/textViewTitle"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/progressCoding"
+        android:layout_alignStart="@+id/progressCoding"
+        android:layout_marginTop="10dp"
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Coding"
+        android:id="@+id/textViewCoding"
+        android:textColor="#ff888888"
+        android:layout_below="@+id/textViewTitle"
+        android:layout_alignLeft="@+id/progressCoding"
+        android:layout_alignStart="@+id/progressCoding"
+        android:layout_marginTop="33dp" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Debugging"
+        android:id="@+id/textView3"
+        android:layout_marginTop="23dp"
+        android:textColor="#ff888888"
+        android:layout_below="@+id/progressCoding"
+        android:layout_alignLeft="@+id/progressCoding"
+        android:layout_alignStart="@+id/progressCoding" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:text="Building"
+        android:id="@+id/textView4"
+        android:layout_marginTop="25dp"
+        android:textColor="#ff888888"
+        android:layout_below="@+id/progressDebugging"
+        android:layout_alignLeft="@+id/progressBuilding"
+        android:layout_alignStart="@+id/progressBuilding" />
 
 </RelativeLayout>

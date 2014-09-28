@@ -13,9 +13,6 @@ import com.codealike.android.CodealikeApplication;
 import com.codealike.android.R;
 import com.codealike.android.model.Technology;
 import com.codealike.android.model.UserData;
-import com.x5.template.Chunk;
-import com.x5.template.Theme;
-import com.x5.template.providers.AndroidTemplates;
 
 import java.math.BigDecimal;
 import java.math.RoundingMode;
@@ -58,21 +55,6 @@ public class CodeFactsFragment extends Fragment {
                 return t1.Percentage > t2.Percentage ? -1 : (t1.Percentage < t2.Percentage ? 1 : 0);
             }
         });
-
-
-        WebView webView = (WebView)v.findViewById(R.id.codeFactsWebView);
-        final WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        webSettings.setBuiltInZoomControls(false);
-        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
-        webView.requestFocus(View.FOCUS_DOWN);
-
-        AndroidTemplates loader = new AndroidTemplates(activity.getBaseContext());
-        Theme theme = new Theme(loader);
-        Chunk chunk = theme.makeChunk("CodeFactsChart#root");
-        chunk.set("technologies", technologies);
-
-        webView.loadDataWithBaseURL( "file:///android_asset/", chunk.toString(), "text/html", "utf-8", null );
 
         return v;
     }

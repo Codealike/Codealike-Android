@@ -8,14 +8,11 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.widget.ProgressBar;
 
 import com.codealike.android.CodealikeApplication;
 import com.codealike.android.R;
 import com.codealike.android.model.UserData;
-import com.x5.template.Chunk;
-import com.x5.template.Theme;
-import com.x5.template.providers.AndroidTemplates;
-
 
 public class UserFactsFragment extends Fragment {
 
@@ -27,22 +24,13 @@ public class UserFactsFragment extends Fragment {
 
         UserData userData = ((CodealikeApplication)activity.getApplication()).getUserData();
 
-        WebView webView = (WebView)v.findViewById(R.id.userFactsWebView);
-        final WebSettings webSettings = webView.getSettings();
-        webSettings.setJavaScriptEnabled(true);
-        webSettings.setBuiltInZoomControls(false);
-        webSettings.setCacheMode(WebSettings.LOAD_NO_CACHE);
-        webView.requestFocus(View.FOCUS_DOWN);
+        ProgressBar coding = (ProgressBar) v.findViewById(R.id.progressCoding);
+        ProgressBar debugging = (ProgressBar) v.findViewById(R.id.progressDebugging);
+        ProgressBar building = (ProgressBar) v.findViewById(R.id.progressBuilding);
 
-        /*AndroidTemplates loader = new AndroidTemplates(activity.getBaseContext());
-        Theme theme = new Theme(loader);
-        Chunk chunk = theme.makeChunk("UserFactsChart#root");
-        chunk.set("coding", userData.ActivityPercentage.Coding);
-        chunk.set("building", userData.ActivityPercentage.Building);
-        chunk.set("debugging", userData.ActivityPercentage.Debugging);*/
-
-        //webView.loadDataWithBaseURL( "file:///android_asset/", chunk.toString(), "text/html", "utf-8", null );
-        webView.loadUrl("file:///android_asset/app/user-facts.html");
+        coding.setProgress((int)userData.ActivityPercentage.Coding);
+        debugging.setProgress((int)userData.ActivityPercentage.Debugging);
+        building.setProgress((int)userData.ActivityPercentage.Building);
 
         return v;
     }

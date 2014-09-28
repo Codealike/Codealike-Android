@@ -25,5 +25,4 @@ dependencies {
     compile 'com.android.support:support-v13:19.+'
     compile 'com.loopj.android:android-async-http:1.4.5'
     compile 'com.google.code.gson:gson:2.3'
-    compile 'com.x5dev:chunk-templates:2.4'
 }
