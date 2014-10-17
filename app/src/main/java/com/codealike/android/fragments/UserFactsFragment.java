@@ -13,7 +13,7 @@ import android.widget.ProgressBar;
 import com.codealike.android.CodealikeApplication;
 import com.codealike.android.R;
 import com.codealike.android.model.UserData;
-import com.daimajia.numberprogressbar.NumberProgressBar;
+import com.codealike.android.NumberProgressBar;
 
 public class UserFactsFragment extends Fragment {
 
@@ -21,7 +21,7 @@ public class UserFactsFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View v = inflater.inflate(R.layout.fragment_user_facts, container, false);
-        FragmentActivity activity = getActivity();
+        /*FragmentActivity activity = getActivity();
 
         UserData userData = ((CodealikeApplication)activity.getApplication()).getUserData();
 
@@ -32,7 +32,7 @@ public class UserFactsFragment extends Fragment {
         debuggingProgressBar.setProgress((int)userData.ActivityPercentage.Debugging);
 
         NumberProgressBar buildingProgressBar = (NumberProgressBar)v.findViewById(R.id.progressBuilding);
-        buildingProgressBar.setProgress((int)userData.ActivityPercentage.Building);
+        buildingProgressBar.setProgress((int)userData.ActivityPercentage.Building);*/
 
         return v;
     }
