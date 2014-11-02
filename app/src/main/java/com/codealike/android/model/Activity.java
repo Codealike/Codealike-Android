@@ -10,9 +10,4 @@ public class Activity {
     public double Coding;
 
     public double Debugging;
-
-    public Activity()
-    {
-
-    }
 }
