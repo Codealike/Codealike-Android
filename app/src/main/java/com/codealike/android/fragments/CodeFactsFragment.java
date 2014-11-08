@@ -31,6 +31,14 @@ import java.util.List;
 
 public class CodeFactsFragment extends Fragment {
 
+    private int[] technologyColors = new int[] {
+        Color.parseColor("#045FB4"),
+        Color.parseColor("#FA5882"),
+        Color.parseColor("#00CC99"),
+        Color.parseColor("#D0A9F5"),
+        Color.parseColor("#F7BE81")
+    };
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
@@ -67,7 +75,8 @@ public class CodeFactsFragment extends Fragment {
         List<BarChartElement> barChartElements = new ArrayList<BarChartElement>();
         for(int i = 0; i < 5; i++) {
             Technology technology = technologies.get(i);
-            barChartElements.add(new BarChartElement(technology.Name, (int)technology.Percentage, Color.BLUE));
+            int color = this.technologyColors[i];
+            barChartElements.add(new BarChartElement(technology.Name, (int)technology.Percentage, color));
         }
 
         RelativeLayout layout = (RelativeLayout)v.findViewById(R.id.layoutCodeFacts);
