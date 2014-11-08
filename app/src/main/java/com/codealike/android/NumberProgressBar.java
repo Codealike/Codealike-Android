@@ -154,10 +154,7 @@ public class NumberProgressBar extends View {
 
     public enum ProgressTextVisibility {
         Visible, Invisible
-    }
-
-    ;
-
+    };
 
     public NumberProgressBar(Context context) {
         this(context, null);

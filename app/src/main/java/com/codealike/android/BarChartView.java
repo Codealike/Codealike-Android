@@ -81,8 +81,6 @@ public class BarChartView extends RelativeLayout {
             params.addRule(RelativeLayout.BELOW, ProgressId + (index - 1));
         }
 
-        //params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-        //params.addRule(RelativeLayout.ALIGN_PARENT_START);
         textView.setLayoutParams(params);
 
         textView.setTextAppearance(this.getContext(), android.R.style.TextAppearance_Medium);
@@ -95,7 +93,7 @@ public class BarChartView extends RelativeLayout {
     {
         BarChartElement element = this.elements.get(index);
 
-        NumberProgressBar progressBar = new NumberProgressBar(this.getContext(), null, R.style.NumberProgressBar_Coding);
+        NumberProgressBar progressBar = new NumberProgressBar(this.getContext(), null, R.style.NumberProgressBar);
         progressBar.setId(ProgressId + index);
         progressBar.setProgress((int)element.getPercentage());
 
@@ -103,17 +101,14 @@ public class BarChartView extends RelativeLayout {
         params.setMargins(10, 25, 10, 5);
         params.addRule(RelativeLayout.BELOW, TextViewId + index);
 
-        //params.addRule(RelativeLayout.ALIGN_PARENT_LEFT);
-        //params.addRule(RelativeLayout.ALIGN_PARENT_START);
         progressBar.setLayoutParams(params);
 
         progressBar.setUnreachedBarColor(Color.WHITE);
-        progressBar.setReachedBarColor(Color.RED);
+        progressBar.setReachedBarColor(element.getColor());
         progressBar.setReachedBarHeight(50);
         progressBar.setUnreachedBarHeight(0);
-        progressBar.setProgressTextColor(Color.RED);
+        progressBar.setProgressTextColor(element.getColor());
 
         return progressBar;
     }
-
 }

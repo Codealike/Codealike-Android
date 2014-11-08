@@ -1,95 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
 
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/layoutUserFacts"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <!--<TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="Behavior Facts"
-        android:id="@+id/textViewTitle"
-        android:layout_alignParentTop="true"
-        android:layout_marginTop="10dp"
-        android:textSize="30dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAppearance="?android:attr/textAppearanceLarge"
+            android:text="Behavior Facts"
+            android:id="@+id/textViewTitle"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="10dp"
+            android:textSize="30dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp" />
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Coding"
-        android:id="@+id/textViewCoding"
-        android:textColor="@color/subtitle"
-        android:layout_marginTop="25dp"
-        android:layout_marginBottom="5dp"
-        android:layout_below="@+id/textViewTitle"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Debugging"
-        android:id="@+id/textViewDebugging"
-        android:textColor="@color/subtitle"
-        android:layout_below="@+id/progressCoding"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Building"
-        android:id="@+id/textViewBuilding"
-        android:textColor="@color/subtitle"
-        android:layout_below="@+id/progressDebugging"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginBottom="5dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
-
-    <com.daimajia.numberprogressbar.NumberProgressBar
-        android:id="@+id/progressCoding"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        style="@style/NumberProgressBar_Coding"
-        android:layout_below="@+id/textViewCoding"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
-
-    <com.daimajia.numberprogressbar.NumberProgressBar
-        android:id="@+id/progressDebugging"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        style="@style/NumberProgressBar_Debugging"
-        android:layout_below="@+id/textViewDebugging"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />
-
-    <com.daimajia.numberprogressbar.NumberProgressBar
-        android:id="@+id/progressBuilding"
-        android:layout_width="fill_parent"
-        android:layout_height="50dp"
-        style="@style/NumberProgressBar_Building"
-        android:layout_below="@+id/textViewBuilding"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginLeft="10dp"
-        android:layout_marginRight="10dp" />-->
+    </RelativeLayout>
 
 </RelativeLayout>
