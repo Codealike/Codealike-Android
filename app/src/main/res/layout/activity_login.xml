@@ -12,7 +12,8 @@
             android:layout_height="wrap_content"
             android:padding="10dip"
             android:layout_marginTop="20dip"
-            android:theme="@style/form">
+            >
+            <!--android:theme="@style/form"-->
             <!--  Username Label -->
             <TextView android:layout_width="fill_parent"
                 android:layout_height="wrap_content"

@@ -22,6 +22,30 @@ public class CodealikeApplication extends Application {
         this.userData = userData;
     }
 
+    private String userName = "hveiras";
+
+    public String getUserName()
+    {
+        return userName;
+    }
+
+    public void setUserName(String userName)
+    {
+        this.userName = userName;
+    }
+
+    private String token = "196f999e-e860-4687-9122-1bbfa4802ae0";
+
+    public String getToken()
+    {
+        return token;
+    }
+
+    public void setToken(String token)
+    {
+        this.token = token;
+    }
+
     private static final String TAG = "CodealikeApplication";
 
     @Override
