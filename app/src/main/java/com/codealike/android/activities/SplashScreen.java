@@ -6,6 +6,8 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ProgressBar;
 
 import com.codealike.android.CodealikeApplication;
 import com.codealike.android.R;
@@ -31,6 +33,10 @@ public class SplashScreen extends Activity {
         checkStoredCredentials(app.getUserName(), app.getToken());
     }
 
+    public void login(View view) {
+
+    }
+
     private void checkStoredCredentials(String userName, String token)
     {
         if(userName != null && !userName.isEmpty() && token != null && !token.isEmpty())
@@ -39,7 +45,11 @@ public class SplashScreen extends Activity {
         }
         else
         {
+            //Hide progress bar.
+            ((ProgressBar)findViewById(R.id.progressBar)).setVisibility(View.INVISIBLE);
+
             //Show login fields.
+            findViewById(R.id.loginForm).setVisibility(View.VISIBLE);
         }
     }
 

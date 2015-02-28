@@ -22,7 +22,7 @@ public class CodealikeApplication extends Application {
         this.userData = userData;
     }
 
-    private String userName = "hveiras";
+    private String userName; //= "hveiras";
 
     public String getUserName()
     {
