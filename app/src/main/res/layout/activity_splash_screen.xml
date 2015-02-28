@@ -43,20 +43,11 @@
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/username"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginTop="5dip"
-            android:layout_marginBottom="5dip"
-            android:singleLine="true"
-            android:hint="@string/username"/>
-
-        <EditText
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/token"
-            android:layout_below="@id/username"
             android:layout_gravity="center_horizontal"
-            android:hint="@string/codealike_token"/>
+            android:hint="@string/api_token"
+            android:singleLine="true"
+            android:text="hveiras/196f999e-e860-4687-9122-1bbfa4802ae0"/>
 
         <CheckBox
             android:layout_width="wrap_content"

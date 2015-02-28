@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ProgressBar;
 
 import com.codealike.android.CodealikeApplication;
@@ -20,6 +21,8 @@ import com.loopj.android.http.JsonHttpResponseHandler;
 import org.apache.http.Header;
 import org.apache.http.message.BasicHeader;
 import org.json.JSONObject;
+
+import java.util.UUID;
 
 public class SplashScreen extends Activity {
 
@@ -35,6 +38,24 @@ public class SplashScreen extends Activity {
 
     public void login(View view) {
 
+        EditText tokenText = ((EditText)findViewById((R.id.token)));
+
+        String token = tokenText.getText().toString();
+
+        if (token == null || token.isEmpty() || !token.matches("[^\\s]+\\/[0-9a-f]{8}-[0-9a-f]{4}-[1-5][0-9a-f]{3}-[89ab][0-9a-f]{3}-[0-9a-f]{12}")) {
+            tokenText.setError("Invalid token format");
+            return;
+        }
+
+        //TODO: validate if the token has more than one "/"
+        String[] tokenParts = token.split("/");
+        String userName = tokenParts[0];
+        String tokenId = tokenParts[1];
+
+        //Show progress bar.
+        ((ProgressBar) findViewById(R.id.progressBar)).setVisibility(View.VISIBLE);
+
+        fetchFactsData(userName, tokenId);
     }
 
     private void checkStoredCredentials(String userName, String token)
