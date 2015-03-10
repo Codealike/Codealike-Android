@@ -10,7 +10,8 @@
         android:text=""
         android:id="@+id/button"
         android:layout_margin="1dp"
-        android:background="#87C161"
+        android:background="#EEEEEE"
+        android:textColor="#333"
     />
 
 </LinearLayout>
