@@ -4,6 +4,7 @@ import android.graphics.Color;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.support.v4.app.FragmentActivity;
+import android.util.DisplayMetrics;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.GridView;
 import android.widget.TextView;
 
 import com.codealike.android.CodealikeApplication;
+import com.codealike.android.HeatMapAdapter;
 import com.codealike.android.R;
 import com.codealike.android.model.UserData;
 
@@ -32,11 +34,20 @@ public class DaysOnFireFragment extends Fragment {
 
         GridView gridView = (GridView) v.findViewById(R.id.gridView);
 
-        ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(activity,
-                android.R.layout.simple_list_item_1, thisYearDaysOnFire);
+        DisplayMetrics dm = new DisplayMetrics();
+        activity.getWindowManager().getDefaultDisplay().getMetrics(dm);
+        int size = ((dm.widthPixels / 2) / 4);
 
-        gridView.setAdapter(adapter);
-        //gridView.getChildAt(0).setBackgroundColor(Color.BLUE);
+        GridView.MarginLayoutParams mlp = (GridView.MarginLayoutParams)gridView.getLayoutParams();
+        mlp.setMargins(dm.widthPixels / 4, 20, dm.widthPixels / 4, 20);
+        //ArrayAdapter<Integer> adapter = new ArrayAdapter<Integer>(activity,
+                //android.R.layout.simple_list_item_1, thisYearDaysOnFire);
+
+
+        gridView.setAdapter(new HeatMapAdapter(activity, size, thisYearDaysOnFire));
+
+
+        //gridView.getChildAt(0).setBackgroundColor(Color.parseColor("#EEEEEE"));
 
         return v;
     }

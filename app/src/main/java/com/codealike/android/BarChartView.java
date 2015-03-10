@@ -12,9 +12,6 @@ import com.codealike.android.model.Technology;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by root on 10/17/14.
- */
 public class BarChartView extends RelativeLayout {
 
     final int TextViewId = 1000;

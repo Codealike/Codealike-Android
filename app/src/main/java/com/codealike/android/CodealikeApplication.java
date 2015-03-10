@@ -5,9 +5,6 @@ import android.util.Log;
 
 import com.codealike.android.model.UserData;
 
-/**
- * Created by root on 8/11/14.
- */
 public class CodealikeApplication extends Application {
 
     private UserData userData;

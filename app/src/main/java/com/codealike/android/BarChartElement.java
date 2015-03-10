@@ -1,8 +1,5 @@
 package com.codealike.android;
 
-/**
- * Created by root on 10/17/14.
- */
 public class BarChartElement {
 
     private String name;
